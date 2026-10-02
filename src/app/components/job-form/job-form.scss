@@ -1,0 +1,31 @@
+$error: #dc2626;
+$radius: 10px;
+
+.job-form {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: $radius;
+  margin-bottom: 2rem;
+  display: grid;
+  gap: .85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+
+  h2 { margin: 0; }
+
+  label {
+    display: grid;
+    gap: .25rem;
+    font-size: .9rem;
+    font-weight: 500;
+  }
+
+  .error {
+    color: $error;
+    font-weight: 400;
+  }
+
+  .actions {
+    display: flex;
+    gap: .5rem;
+  }
+}

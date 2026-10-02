@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="job-form">
+  <h2>{{ job() ? 'Állás szerkesztése' : 'Új állás hozzáadása' }}</h2>
+
+  <label>
+    Cég *
+    <input formControlName="company" />
+    @if (form.controls.company.touched && form.controls.company.invalid) {
+      <small class="error">A cég megadása kötelező.</small>
+    }
+  </label>
+
+  <label>
+    Pozíció *
+    <input formControlName="position" />
+    @if (form.controls.position.touched && form.controls.position.invalid) {
+      <small class="error">A pozíció megadása kötelező.</small>
+    }
+  </label>
+
+  <label>
+    Link
+    <input formControlName="link" type="url" placeholder="https://..." />
+  </label>
+
+  <label>
+    Jelentkezés dátuma *
+    <input formControlName="appliedDate" type="date" />
+  </label>
+
+  <label>
+    Státusz
+    <select formControlName="status">
+      @for (s of statuses; track s) {
+        <option [value]="s">{{ s }}</option>
+      }
+    </select>
+  </label>
+
+  <label>
+    Megjegyzés
+    <textarea formControlName="notes" rows="3"></textarea>
+  </label>
+
+  <div class="actions">
+    <button type="submit">{{ job() ? 'Mentés' : 'Hozzáadás' }}</button>
+    @if (job()) {
+      <button type="button" class="secondary" (click)="cancel()">Mégse</button>
+    }
+  </div>
+</form>
